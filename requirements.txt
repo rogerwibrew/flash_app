@@ -1,4 +1,16 @@
-flask
-pytest
-scipy
-numpy
+blinker==1.9.0
+click==8.3.0
+-e git+ssh://git@github.com/rogerwibrew/flash_app.git@054543cb0797766b3140e3e1f3b1954fdd676e24#egg=flash
+Flask==3.1.2
+iniconfig==2.1.0
+itsdangerous==2.2.0
+Jinja2==3.1.6
+MarkupSafe==3.0.2
+numpy==2.3.3
+packaging==25.0
+pluggy==1.6.0
+Pygments==2.19.2
+pytest==8.4.2
+python-dotenv==1.1.1
+scipy==1.16.2
+Werkzeug==3.1.3
