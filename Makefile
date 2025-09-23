@@ -1,26 +1,22 @@
-.PHONY: install dev test coverage clean
-
-# Install runtime dependencies
-install:
+install: ## Install runtime dependencies
 	pip install -e .
 
-# Install with dev dependencies (pytest, pytest-cov, etc.)
-dev:
+dev: ## Install runtime + dev dependencies
 	pip install -e ".[dev]"
 
-# Run tests quickly
-test:
+test: ## Run pytest with verbose output
 	pytest -v
 
-# Run tests with coverage report
-coverage:
+coverage: ## Run pytest with coverage (terminal report)
 	pytest --cov=src --cov-report=term-missing
 
-# Run tests with HTML coverage report
-coverage-html:
+coverage-html: ## Run pytest with coverage (HTML report)
 	pytest --cov=src --cov-report=html
 
-# Remove caches, build files, coverage reports, and local DB
-clean:
+clean: ## Clean up cache, build files, coverage, and DB
 	rm -rf .pytest_cache .coverage coverage.xml htmlcov dist build *.egg-info flash.db
 	find . -type d -name "__pycache__" -exec rm -rf {} +
+
+help: ## Show available make targets
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
+
