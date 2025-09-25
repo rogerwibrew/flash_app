@@ -1,5 +1,5 @@
 import pytest
-from app import app
+from flash.app import app
 from db.models import Base, Component
 from db.database import SessionLocal, engine
 
